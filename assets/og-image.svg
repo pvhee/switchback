@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F4F0E6"/>
+      <stop offset="1" stop-color="#EAE3CF"/>
+    </linearGradient>
+    <linearGradient id="mtn" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#D7CFB6"/>
+      <stop offset="1" stop-color="#BFB59A"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Distant ridge -->
+  <path d="M0 470 L120 440 L240 460 L360 410 L480 430 L600 380 L720 410 L840 360 L960 380 L1080 350 L1200 370 L1200 630 L0 630 Z"
+        fill="#D2C9AF" opacity="0.6"/>
+
+  <!-- Main mountain on right -->
+  <path d="M620 630 L620 540 C700 510 780 430 860 360 L920 290 L980 360 C1060 440 1140 510 1200 540 L1200 630 Z"
+        fill="url(#mtn)"/>
+
+  <!-- Contour lines -->
+  <g fill="none" stroke="#B6AC8F" stroke-width="1" opacity="0.4">
+    <path d="M650 555 C730 535 800 480 870 425 C920 385 980 395 1200 410"/>
+    <path d="M680 510 C760 490 820 440 880 390 C930 350 990 365 1200 380"/>
+    <path d="M730 470 C800 450 855 405 905 360 C945 325 995 340 1180 350"/>
+  </g>
+
+  <!-- Switchback trail -->
+  <path d="M 800 600 L 700 560 L 920 525 L 720 490 L 940 455 L 760 420 L 945 385 L 820 350 L 920 310"
+        fill="none" stroke="#C25A2A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Summit marker -->
+  <g transform="translate(920 295)">
+    <path d="M -10 12 L 0 -16 L 10 12 Z" fill="#1B1F1B"/>
+  </g>
+
+  <!-- Switchback wordmark -->
+  <g transform="translate(80 200)">
+    <path d="M0 30 L20 6 L40 26 L60 4 L80 24 L92 10" fill="none" stroke="#C25A2A" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <text x="80" y="320" font-family="Fraunces, Georgia, serif" font-size="76" font-weight="500" letter-spacing="-1" fill="#1B1F1B">switchback</text>
+
+  <text x="80" y="380" font-family="Inter, sans-serif" font-size="26" font-weight="500" fill="#4A4E45">No one runs straight up a mountain.</text>
+  <text x="80" y="420" font-family="Inter, sans-serif" font-size="20" font-weight="400" fill="#4A4E45">
+    <tspan x="80" dy="0">Adaptive training plans for trail and ultra runners.</tspan>
+    <tspan x="80" dy="28">Pushed to your Garmin. Reshaped every week.</tspan>
+  </text>
+
+  <!-- url -->
+  <text x="80" y="555" font-family="JetBrains Mono, monospace" font-size="18" font-weight="500" fill="#C25A2A">switchback.run</text>
+</svg>

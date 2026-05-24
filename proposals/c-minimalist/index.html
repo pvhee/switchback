@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light" />
+  <title>Switchback — adaptive trail and ultra training plans</title>
+  <meta name="description" content="Adaptive trail and ultra training plans. Pushed to your Garmin. Reshaped every week from what you actually ran." />
+
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="nav">
+    <a class="brand" href="/">
+      <svg class="glyph" viewBox="0 0 40 24" aria-hidden="true">
+        <path d="M2 22 L10 6 L18 18 L26 4 L34 16 L38 8" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span>switchback</span>
+    </a>
+    <a class="link" href="#waitlist">Waitlist →</a>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero">
+      <p class="eyebrow">For trail &amp; ultra runners</p>
+      <h1 class="display">
+        No one runs<br>
+        straight up<br>
+        a <span class="hl">mountain.</span>
+      </h1>
+      <p class="lede">
+        Adaptive training plans for trail and ultra runners.<br>
+        Pushed to your Garmin. Reshaped every week.
+      </p>
+
+      <form class="waitlist" id="waitlist" data-form="hero">
+        <label class="vh" for="email-hero">Email</label>
+        <input id="email-hero" name="email" type="email" required placeholder="you@example.com" autocomplete="email" />
+        <button type="submit" class="btn">Get early access →</button>
+        <p class="status" role="status" aria-live="polite"></p>
+      </form>
+
+      <p class="meta">
+        14-day free trial · No card required · Built for Garmin
+      </p>
+    </section>
+
+    <!-- THE METAPHOR -->
+    <section class="section">
+      <p class="kicker">01 · The principle</p>
+      <h2 class="h2">
+        A switchback lets you climb<br>
+        terrain a straight line never could.
+      </h2>
+      <p class="prose">
+        By zigzagging back and forth, each segment stays under the safe gradient. The total climb is steep. Each step is not. That's how trails get up mountains. It's also how training plans should work.
+      </p>
+    </section>
+
+    <!-- HOW -->
+    <section class="section section-rule">
+      <p class="kicker">02 · How it works</p>
+      <h2 class="h2">
+        Four steps.<br>
+        Then the loop.
+      </h2>
+      <ol class="steps">
+        <li>
+          <span class="step-n">01</span>
+          <span class="step-t">Describe your race in plain language.</span>
+        </li>
+        <li>
+          <span class="step-n">02</span>
+          <span class="step-t">Get a plan written for your zones and your schedule.</span>
+        </li>
+        <li>
+          <span class="step-n">03</span>
+          <span class="step-t">Workouts land on your Garmin Connect calendar.</span>
+        </li>
+        <li>
+          <span class="step-n">04</span>
+          <span class="step-t">Every Sunday, the plan rewrites itself from your data.</span>
+        </li>
+      </ol>
+    </section>
+
+    <!-- TRAIL -->
+    <section class="section section-rule">
+      <p class="kicker">03 · For the steep end</p>
+      <h2 class="h2">
+        Most plan apps stop at the marathon.<br>
+        <span class="hl">We start there.</span>
+      </h2>
+      <ul class="bullets">
+        <li>Vertical-first workouts — hill repeats with vert targets, not just time.</li>
+        <li>Long days that look like the race — back-to-backs, hilly out-and-backs.</li>
+        <li>Effort-led where it matters — no HR alarm halfway up a climb.</li>
+        <li>AeT and LT drift checks keep your zones honest as you get fitter.</li>
+      </ul>
+    </section>
+
+    <!-- PRICING -->
+    <section class="section section-rule" id="pricing">
+      <p class="kicker">04 · Pricing</p>
+      <h2 class="h2">€14.99 / month.<br>Or €119 / year.</h2>
+      <p class="prose">
+        14-day free trial, no card. Cancel anytime. Effective €9.92 / month annually.
+      </p>
+      <p class="prose muted">
+        Dedicated ultra coaches typically charge €150–400 / month. Runna is ~€20 / month and is road-only.
+      </p>
+    </section>
+
+    <!-- CTA -->
+    <section class="section section-cta">
+      <h2 class="h2 center">
+        Join the<br>
+        <span class="hl">first hundred.</span>
+      </h2>
+      <p class="prose center">Early-access pricing locked in for life.</p>
+      <form class="waitlist waitlist-center" data-form="footer">
+        <label class="vh" for="email-foot">Email</label>
+        <input id="email-foot" name="email" type="email" required placeholder="you@example.com" autocomplete="email" />
+        <button type="submit" class="btn">Get early access →</button>
+        <p class="status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <a class="brand" href="/">
+      <svg class="glyph" viewBox="0 0 40 24" aria-hidden="true">
+        <path d="M2 22 L10 6 L18 18 L26 4 L34 16 L38 8" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span>switchback</span>
+    </a>
+    <p class="footer-line">A product of <a href="https://cloudwired.dev">Cloudwired</a>, Estonia.</p>
+    <nav class="footer-nav">
+      <a href="mailto:hello@switchback.run">hello@switchback.run</a>
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
+    </nav>
+  </footer>
+
+  <script src="scripts.js" defer></script>
+</body>
+</html>

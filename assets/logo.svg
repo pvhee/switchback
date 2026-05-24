@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 56" role="img" aria-label="Switchback">
+  <g transform="translate(8 16)">
+    <path d="M0 24 L10 6 L20 20 L30 4 L40 18 L46 8" fill="none" stroke="#C25A2A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <text x="68" y="38" font-family="Fraunces, Georgia, serif" font-size="30" font-weight="500" letter-spacing="-0.5" fill="#1B1F1B">switchback</text>
+</svg>

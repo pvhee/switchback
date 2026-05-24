@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark" />
+  <title>Switchback — adaptive training plans for trail and ultra runners</title>
+  <meta name="description" content="Adaptive trail and ultra training plans. Pushed to your Garmin. Reshaped every week from your actual data." />
+
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="nav">
+    <a class="nav-brand" href="/">
+      <svg class="glyph" viewBox="0 0 40 24" aria-hidden="true">
+        <path d="M2 22 L10 6 L18 18 L26 4 L34 16 L38 8" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="wordmark">switchback</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#how">How it works</a>
+      <a href="#why">Why trail</a>
+      <a href="#pricing">Pricing</a>
+      <a class="btn btn-ghost" href="#waitlist">Join waitlist</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">
+            <span class="kbd">v0.1</span>
+            <span>For trail &amp; ultra runners</span>
+          </p>
+          <h1 class="display">
+            The plan that knows<br>
+            what you <span class="hl">actually</span> ran.
+          </h1>
+          <p class="lede">
+            Switchback writes adaptive training plans for trail and ultra. Every week, your plan reshapes from your Garmin data — HR drift, pace, vert, sleep, your notes — and pushes the next seven days straight to your watch.
+          </p>
+
+          <form class="waitlist" id="waitlist" data-form="hero">
+            <label class="vh" for="email-hero">Email address</label>
+            <input id="email-hero" name="email" type="email" required placeholder="you@example.com" autocomplete="email" />
+            <button type="submit" class="btn btn-primary">Get early access</button>
+            <p class="waitlist-status" role="status" aria-live="polite"></p>
+          </form>
+
+          <div class="signals">
+            <div class="signal">
+              <span class="signal-num">14</span>
+              <span class="signal-lbl">week training block validated</span>
+            </div>
+            <div class="signal">
+              <span class="signal-num">3,200m</span>
+              <span class="signal-lbl">vert in target race</span>
+            </div>
+            <div class="signal">
+              <span class="signal-num">100%</span>
+              <span class="signal-lbl">Garmin native — no manual import</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- SAMPLE WEEK MOCKUP -->
+        <div class="hero-visual">
+          <div class="panel">
+            <div class="panel-head">
+              <div class="panel-head-l">
+                <span class="panel-title">Week 7 / 12 · Build</span>
+                <span class="chip chip-orange">Adapted from W6</span>
+              </div>
+              <span class="panel-meta"><span class="dot"></span> synced 2m ago</span>
+            </div>
+
+            <div class="workouts">
+              <article class="wk">
+                <header>
+                  <span class="wk-day">MON</span>
+                  <span class="wk-type wk-type-intervals">intervals</span>
+                </header>
+                <p class="wk-name">6 × 3 min @ Z4</p>
+                <p class="wk-meta">
+                  <span><strong>50</strong>min</span>
+                  <span><strong>167–179</strong>bpm</span>
+                  <span><strong>~8.5</strong>km</span>
+                </p>
+              </article>
+
+              <article class="wk">
+                <header>
+                  <span class="wk-day">WED</span>
+                  <span class="wk-type wk-type-hills">hills</span>
+                </header>
+                <p class="wk-name">Hilly out-and-back</p>
+                <p class="wk-meta">
+                  <span><strong>1h</strong>5m</span>
+                  <span><strong>350m</strong> vert</span>
+                  <span><em>effort-led</em></span>
+                </p>
+              </article>
+
+              <article class="wk wk-feat">
+                <header>
+                  <span class="wk-day">FRI</span>
+                  <span class="wk-type wk-type-long">long</span>
+                </header>
+                <p class="wk-name">Long run, Z2 drift</p>
+                <p class="wk-meta">
+                  <span><strong>2h</strong>15m</span>
+                  <span><strong>134–154</strong>bpm</span>
+                  <span><strong>~22</strong>km</span>
+                </p>
+                <p class="wk-note">↑ Added 10 min — last week's Z2 drift was clean.</p>
+              </article>
+
+              <article class="wk">
+                <header>
+                  <span class="wk-day">SAT</span>
+                  <span class="wk-type wk-type-easy">recovery</span>
+                </header>
+                <p class="wk-name">Easy 40 min</p>
+                <p class="wk-meta">
+                  <span><strong>40</strong>min</span>
+                  <span><strong>&lt;148</strong>bpm</span>
+                </p>
+              </article>
+            </div>
+
+            <footer class="panel-foot">
+              <span class="panel-foot-l"><span class="dot dot-green"></span> on track for race day</span>
+              <span class="panel-foot-r">87 days to start line</span>
+            </footer>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOOP -->
+    <section class="band" id="how">
+      <div class="band-inner">
+        <p class="kicker">The loop</p>
+        <h2 class="h2">Every Sunday, your plan rewrites itself.</h2>
+        <p class="band-lede">
+          The first week comes from your goal race, your zones, and your schedule. Every week after that, it comes from what you actually did.
+        </p>
+
+        <ol class="loop">
+          <li>
+            <span class="loop-num">01</span>
+            <h3>Read</h3>
+            <p>Pull last 7 days from Garmin — HR, pace, vert, durations, RPE, sleep, HRV.</p>
+          </li>
+          <li>
+            <span class="loop-num">02</span>
+            <h3>Diagnose</h3>
+            <p>Compare against the plan. Detect drift, missed sessions, fatigue signals, and your free-text notes.</p>
+          </li>
+          <li>
+            <span class="loop-num">03</span>
+            <h3>Adapt</h3>
+            <p>Regenerate next week within periodization rules. Volume caps. Recovery weeks. One hard day at a time.</p>
+          </li>
+          <li>
+            <span class="loop-num">04</span>
+            <h3>Push</h3>
+            <p>Workouts land on your Garmin Connect calendar. Sync to watch is automatic. Open Garmin: it's there.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- WHY TRAIL -->
+    <section class="band band-alt" id="why">
+      <div class="band-inner">
+        <p class="kicker">Why trail and ultra</p>
+        <h2 class="h2">Built for the steep end of the sport.</h2>
+        <p class="band-lede">
+          Most plan apps stop at the marathon. Switchback starts there.
+        </p>
+
+        <div class="feature-grid">
+          <article>
+            <div class="feat-icon">↑</div>
+            <h3>Vertical-first workouts</h3>
+            <p>Hill repeats with vert targets, not just time. Long climbs measured in metres ascended.</p>
+          </article>
+          <article>
+            <div class="feat-icon">⇄</div>
+            <h3>Race-shaped long days</h3>
+            <p>Back-to-backs. Hilly out-and-backs. Time-on-feet on terrain that matches the start line.</p>
+          </article>
+          <article>
+            <div class="feat-icon">~</div>
+            <h3>Effort-led where it matters</h3>
+            <p>No HR alarm halfway up a steep climb. Effort cues on the descent. The plan knows when targets stop applying.</p>
+          </article>
+          <article>
+            <div class="feat-icon">⟲</div>
+            <h3>Drift checks keep zones honest</h3>
+            <p>Periodic AeT and LT tests. As you get fitter, the dials adjust — not just the dose.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- VS RUNNA -->
+    <section class="band">
+      <div class="band-inner narrow">
+        <p class="kicker">Versus Runna</p>
+        <h2 class="h2">Two different products.</h2>
+
+        <table class="compare">
+          <thead>
+            <tr><th></th><th>Runna</th><th class="us">Switchback</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Distance ceiling</td><td>marathon</td><td class="us">100 mile</td></tr>
+            <tr><td>Vertical-aware workouts</td><td>—</td><td class="us">native</td></tr>
+            <tr><td>Plan adaptation</td><td>template + pace tweaks</td><td class="us">regenerates from your data weekly</td></tr>
+            <tr><td>Conversational adjustments</td><td>—</td><td class="us">native</td></tr>
+            <tr><td>Garmin push</td><td>yes</td><td class="us">yes</td></tr>
+            <tr><td>Monthly price</td><td>~€20</td><td class="us">€14.99</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- FOUNDER -->
+    <section class="band band-alt">
+      <div class="band-inner narrow">
+        <p class="kicker">Origin</p>
+        <h2 class="h2">14 weeks of training. Then a product.</h2>
+        <p class="prose">
+          Switchback started as a personal tool for training for the Monte Rosa Walserwaeg Trail — 43 km, 3,200 m of vert, UTMB World Series, July 2026. Every workout type, every adaptation rule, every Garmin integration detail was tested on a real training block before it became a product.
+        </p>
+        <p class="prose muted">
+          — Peter Van Hee, founder
+        </p>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="band" id="pricing">
+      <div class="band-inner narrow">
+        <p class="kicker">Pricing</p>
+        <h2 class="h2">Two plans. Both fair.</h2>
+        <div class="pricing-grid">
+          <article class="price">
+            <p class="price-tag">Monthly</p>
+            <p class="price-amount">€14.99<span>/mo</span></p>
+            <p class="price-note">Cancel anytime. 14-day free trial, no card.</p>
+          </article>
+          <article class="price price-feat">
+            <p class="price-tag">Annual <span class="chip chip-orange">Save 34%</span></p>
+            <p class="price-amount">€119<span>/yr</span></p>
+            <p class="price-note">Effective €9.92/mo. Two months free.</p>
+          </article>
+        </div>
+        <p class="prose muted small">
+          Dedicated ultra coaches typically charge €150–400 / month. Runna is ~€20 / month and is road-only.
+        </p>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="band band-cta">
+      <div class="band-inner narrow center">
+        <h2 class="h2">Get on the list.</h2>
+        <p class="band-lede center">Early-access pricing locked in for life. We email when there's something to show.</p>
+        <form class="waitlist waitlist-center" data-form="footer">
+          <label class="vh" for="email-foot">Email address</label>
+          <input id="email-foot" name="email" type="email" required placeholder="you@example.com" autocomplete="email" />
+          <button type="submit" class="btn btn-primary">Get early access</button>
+          <p class="waitlist-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <svg class="glyph" viewBox="0 0 40 24" aria-hidden="true">
+          <path d="M2 22 L10 6 L18 18 L26 4 L34 16 L38 8" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="wordmark">switchback</span>
+      </div>
+      <p class="footer-line">A product of <a href="https://cloudwired.dev">Cloudwired</a>, Estonia.</p>
+      <nav class="footer-nav">
+        <a href="mailto:hello@switchback.run">hello@switchback.run</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="scripts.js" defer></script>
+</body>
+</html>

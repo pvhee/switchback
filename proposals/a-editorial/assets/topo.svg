@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Topographic illustration of a switchback trail climbing to a peak">
+
+  <defs>
+    <linearGradient id="face" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#EAE3CF"/>
+      <stop offset="1" stop-color="#D2C9AF"/>
+    </linearGradient>
+    <linearGradient id="far" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#D7CFB6"/>
+      <stop offset="1" stop-color="#BFB59A"/>
+    </linearGradient>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F4F0E6" stop-opacity="0"/>
+      <stop offset="1" stop-color="#F4F0E6" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ambient sky tint -->
+  <rect width="600" height="600" fill="url(#sky)"/>
+
+  <!-- Far ridges across the back -->
+  <path d="M0 280 L60 240 L130 270 L210 200 L280 230 L350 170 L430 200 L500 150 L600 180 L600 600 L0 600 Z"
+        fill="url(#far)" opacity="0.7"/>
+
+  <!-- Second layer of ridges -->
+  <path d="M0 360 L80 320 L160 350 L240 290 L320 320 L400 270 L480 300 L600 280 L600 600 L0 600 Z"
+        fill="#CFC6AC" opacity="0.6"/>
+
+  <!-- Main mountain face — fills most of the canvas -->
+  <path d="M0 600 L0 420 C50 410 110 360 170 300 C220 250 260 180 310 110 L350 60 L390 110 C440 180 480 240 530 290 C560 320 590 360 600 380 L600 600 Z"
+        fill="url(#face)"/>
+
+  <!-- Topographic contour lines on the face -->
+  <g fill="none" stroke="#A89F82" stroke-width="1.1" opacity="0.55">
+    <path d="M0 540 C90 520 170 470 240 420 C300 380 360 320 420 270 C470 230 540 240 600 250"/>
+    <path d="M0 490 C100 470 180 420 250 370 C310 330 360 280 410 230 C450 200 530 210 600 220"/>
+    <path d="M10 440 C100 420 170 370 230 320 C290 280 340 230 390 180 C430 145 510 160 600 175"/>
+    <path d="M40 400 C110 380 170 330 220 290 C270 250 310 200 360 150 C400 120 470 135 550 145"/>
+    <path d="M80 360 C140 340 195 295 240 255 C285 215 320 175 360 130 C390 105 430 120 510 125"/>
+    <path d="M130 320 C180 300 220 260 255 230 C290 200 320 165 350 130"/>
+    <path d="M170 280 C210 260 240 225 270 195 C300 165 325 140 350 115"/>
+  </g>
+
+  <!-- Subtle ridge shadow on right face -->
+  <path d="M350 60 L390 110 C440 180 480 240 530 290 C560 320 590 360 600 380 L600 420 C580 410 540 380 510 350 C470 310 430 250 390 180 L370 130 Z"
+        fill="#000" opacity="0.04"/>
+
+  <!-- THE SWITCHBACK TRAIL -->
+  <g>
+    <!-- shadow under trail for depth -->
+    <path d="M 300 580 L 110 510 L 470 460 L 105 405 L 485 350 L 130 295 L 490 245 L 220 195 L 470 145 L 390 95 L 360 65"
+          fill="none" stroke="#000" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" opacity="0.07"/>
+    <!-- the trail itself -->
+    <path d="M 300 580 L 110 510 L 470 460 L 105 405 L 485 350 L 130 295 L 490 245 L 220 195 L 470 145 L 390 95 L 360 65"
+          fill="none" stroke="#C25A2A" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Workout markers at each switchback turn -->
+  <g>
+    <!-- Today (start) -->
+    <circle cx="300" cy="580" r="11" fill="#FBF8F0" stroke="#1B1F1B" stroke-width="2.4"/>
+    <circle cx="300" cy="580" r="4.5" fill="#C25A2A"/>
+    <!-- Easy -->
+    <circle cx="110" cy="510" r="8.5" fill="#2A4A2D"/>
+    <!-- Intervals -->
+    <circle cx="470" cy="460" r="8.5" fill="#C25A2A"/>
+    <!-- Easy -->
+    <circle cx="105" cy="405" r="8.5" fill="#2A4A2D"/>
+    <!-- Long (big) -->
+    <circle cx="485" cy="350" r="11" fill="#1B1F1B"/>
+    <!-- Easy -->
+    <circle cx="130" cy="295" r="8.5" fill="#2A4A2D"/>
+    <!-- Intervals -->
+    <circle cx="490" cy="245" r="8.5" fill="#C25A2A"/>
+    <!-- Easy -->
+    <circle cx="220" cy="195" r="8.5" fill="#2A4A2D"/>
+    <!-- Long (big) -->
+    <circle cx="470" cy="145" r="11" fill="#1B1F1B"/>
+    <!-- Taper -->
+    <circle cx="390" cy="95" r="8.5" fill="#C25A2A"/>
+  </g>
+
+  <!-- Summit cairn marker -->
+  <g transform="translate(360 65)">
+    <path d="M -12 14 L 0 -16 L 12 14 Z" fill="#1B1F1B"/>
+    <circle cx="0" cy="-22" r="4.5" fill="#C25A2A"/>
+  </g>
+
+  <!-- Annotations -->
+  <g font-family="Inter, system-ui, sans-serif" font-weight="500" fill="#4A4E45">
+    <g transform="translate(316 588)" font-size="13">
+      <text>today</text>
+    </g>
+    <g transform="translate(380 65)" font-size="13">
+      <text>race day</text>
+    </g>
+  </g>
+
+  <!-- Legend at bottom -->
+  <g transform="translate(20 575)" font-family="Inter, system-ui, sans-serif" font-size="12" fill="#4A4E45">
+    <circle cx="7" cy="-3" r="5.5" fill="#2A4A2D"/>
+    <text x="20" y="0">easy</text>
+    <circle cx="85" cy="-3" r="5.5" fill="#C25A2A"/>
+    <text x="98" y="0">interval</text>
+    <circle cx="180" cy="-3" r="7" fill="#1B1F1B"/>
+    <text x="195" y="0">long</text>
+  </g>
+</svg>
