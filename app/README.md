@@ -25,8 +25,27 @@ Open `http://localhost:8000`.
 | POST   | `/api/plan`         | `PlanRequest` (JSON)  | `Plan` (JSON)                        |
 | POST   | `/api/workout.fit`  | `{workout: Workout}`  | Binary `.FIT` file (workout)         |
 
-Plan generation uses Claude `claude-opus-4-7` with adaptive thinking. Override
-with `SWITCHBACK_MODEL=<id>` in `.env`.
+## Models / providers
+
+Plan generation goes through [LiteLLM](https://docs.litellm.ai/), so it's
+provider-agnostic. Set `SWITCHBACK_MODEL` to any LiteLLM model string and the
+matching API key. Default is `claude-opus-4-7`.
+
+```bash
+SWITCHBACK_MODEL=claude-opus-4-7              # default — highest quality, ANTHROPIC_API_KEY
+SWITCHBACK_MODEL=claude-sonnet-4-6            # cheaper Claude
+SWITCHBACK_MODEL=openai/gpt-4o-mini           # cheap, OPENAI_API_KEY
+SWITCHBACK_MODEL=deepseek/deepseek-chat       # very cheap, DEEPSEEK_API_KEY
+SWITCHBACK_MODEL=gemini/gemini-2.0-flash-exp  # cheap, GEMINI_API_KEY
+SWITCHBACK_MODEL=groq/llama-3.3-70b-versatile # fast + cheap, GROQ_API_KEY
+SWITCHBACK_MODEL=openrouter/anthropic/claude-3.5-sonnet  # OPENROUTER_API_KEY
+```
+
+The Plan schema is a Pydantic model passed to `litellm.acompletion` as
+`response_format=Plan`. LiteLLM handles each provider's structured-output
+dialect (Anthropic tool use, OpenAI JSON schema, Gemini JSON mode, etc.).
+Quality varies — Claude and GPT-4o are reliably good; cheaper models will
+sometimes return invalid JSON and trigger a 500.
 
 ## Mobile testing
 

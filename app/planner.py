@@ -1,6 +1,21 @@
+"""Plan generation — provider-agnostic via LiteLLM.
+
+The model is chosen by the SWITCHBACK_MODEL env var. Defaults to
+`claude-opus-4-7`. LiteLLM also accepts model strings like:
+
+    openai/gpt-4o-mini
+    deepseek/deepseek-chat
+    gemini/gemini-2.0-flash-exp
+    openrouter/anthropic/claude-3.5-sonnet
+    groq/llama-3.3-70b-versatile
+
+Each provider reads its own API key from the matching env var
+(ANTHROPIC_API_KEY, OPENAI_API_KEY, DEEPSEEK_API_KEY, GEMINI_API_KEY, ...).
+"""
+
 import os
 
-from anthropic import AsyncAnthropic
+from litellm import acompletion
 
 from models import Plan, PlanRequest
 
@@ -37,6 +52,8 @@ hard, maximum.
 Days use 3-letter lowercase abbreviations: mon, tue, wed, thu, fri, sat, sun.
 """
 
+DEFAULT_MODEL = "claude-opus-4-7"
+
 
 def _build_user_prompt(req: PlanRequest) -> str:
     lines = [f"Runner's goal: {req.goal_description}"]
@@ -52,32 +69,57 @@ def _build_user_prompt(req: PlanRequest) -> str:
     lines.append(
         "Generate a week-by-week plan. Include every week from now through "
         "race week. Each week needs 7 workouts (one per day — rest days "
-        "included)."
+        "included). Respond with JSON matching the Plan schema."
     )
     return "\n".join(lines)
 
 
+def _provider_key_var(model: str) -> str:
+    """Best-effort: which env var the chosen provider needs."""
+    head = model.split("/", 1)[0].lower()
+    return {
+        "openai": "OPENAI_API_KEY",
+        "anthropic": "ANTHROPIC_API_KEY",
+        "claude-opus-4-7": "ANTHROPIC_API_KEY",
+        "claude-opus-4-6": "ANTHROPIC_API_KEY",
+        "claude-sonnet-4-6": "ANTHROPIC_API_KEY",
+        "claude-haiku-4-5": "ANTHROPIC_API_KEY",
+        "deepseek": "DEEPSEEK_API_KEY",
+        "gemini": "GEMINI_API_KEY",
+        "groq": "GROQ_API_KEY",
+        "openrouter": "OPENROUTER_API_KEY",
+        "together_ai": "TOGETHERAI_API_KEY",
+    }.get(head, "ANTHROPIC_API_KEY" if head.startswith("claude") else "")
+
+
 async def generate_plan(req: PlanRequest) -> Plan:
-    if not os.environ.get("ANTHROPIC_API_KEY"):
+    model = os.environ.get("SWITCHBACK_MODEL", DEFAULT_MODEL)
+    key_var = _provider_key_var(model)
+    if key_var and not os.environ.get(key_var):
         raise RuntimeError(
-            "ANTHROPIC_API_KEY is not set. Copy app/.env.example to app/.env "
-            "and add your key, then restart the server."
+            f"{key_var} is not set for model '{model}'. "
+            f"Copy app/.env.example to app/.env and add the key, then "
+            f"restart the server."
         )
 
-    model = os.environ.get("SWITCHBACK_MODEL", "claude-opus-4-7")
-    client = AsyncAnthropic()
-    response = await client.messages.parse(
+    response = await acompletion(
         model=model,
+        messages=[
+            {"role": "system", "content": SYSTEM_PROMPT},
+            {"role": "user", "content": _build_user_prompt(req)},
+        ],
+        response_format=Plan,
         max_tokens=16000,
-        thinking={"type": "adaptive"},
-        output_config={"effort": "high"},
-        system=SYSTEM_PROMPT,
-        messages=[{"role": "user", "content": _build_user_prompt(req)}],
-        output_format=Plan,
     )
-    if response.parsed_output is None:
+    content = response.choices[0].message.content
+    if not content:
         raise RuntimeError(
-            "Plan generator returned an unparseable response. "
-            f"stop_reason={response.stop_reason}"
+            f"{model} returned an empty response. "
+            f"finish_reason={response.choices[0].finish_reason}"
         )
-    return response.parsed_output
+    try:
+        return Plan.model_validate_json(content)
+    except Exception as e:
+        raise RuntimeError(
+            f"{model} returned a response that didn't match the Plan schema: {e}"
+        ) from e
