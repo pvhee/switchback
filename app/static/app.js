@@ -8,17 +8,6 @@
 
 const DAYS = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
 const DAY_LABELS = { mon: "Mon", tue: "Tue", wed: "Wed", thu: "Thu", fri: "Fri", sat: "Sat", sun: "Sun" };
-const TYPE_LABELS = {
-  easy_run: "Easy",
-  long_run: "Long",
-  tempo: "Tempo",
-  intervals: "Intervals",
-  hill_repeats: "Hills",
-  recovery: "Recovery",
-  rest: "Rest",
-  race: "Race",
-  cross_train: "Cross",
-};
 
 const $ = (sel) => document.querySelector(sel);
 const els = {
@@ -158,7 +147,6 @@ function renderWorkout(w) {
   const stats = [];
   if (w.duration_min > 0) stats.push(`${w.duration_min} min`);
   if (w.distance_km) stats.push(`${w.distance_km} km`);
-  stats.push(TYPE_LABELS[w.type] || w.type);
 
   return el(
     "div",
@@ -171,8 +159,16 @@ function renderWorkout(w) {
         "div",
         { class: "workout-title" },
         el("span", { class: "workout-name" }, w.name),
-        el("span", { class: "workout-stats" }, stats.join(" · ")),
-        el("span", { class: `intensity-chip intensity-${w.intensity}` }, w.intensity),
+        stats.length > 0
+          ? el("span", { class: "workout-stats" }, stats.join(" · "))
+          : null,
+        isRest
+          ? null
+          : el(
+              "span",
+              { class: `intensity-chip intensity-${w.intensity}` },
+              w.intensity,
+            ),
       ),
       el("div", { class: "workout-desc" }, w.description),
     ),
