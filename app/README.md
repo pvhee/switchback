@@ -89,17 +89,30 @@ iOS doesn't open `.FIT` natively. Download, then:
 
 Android handles `.FIT` files through the Garmin Connect app share sheet.
 
+## Tests
+
+```bash
+cd app/tests
+npm install
+npm test   # jsdom smoke test for the static frontend in demo mode
+```
+
+The test loads `static/index.html` into jsdom, stubs `fetch` to serve the
+baked sample plan, clicks **Load sample**, and asserts the plan renders
+without runtime errors. Run it before pushing any change to `app/static/`.
+
 ## Layout
 
 ```
 app/
 ├── main.py             FastAPI app: routes + static mount
-├── planner.py          Claude API plan generation (structured output)
+├── planner.py          LiteLLM plan generation (any provider, structured output)
 ├── fit_export.py       Workout → .FIT bytes (fit-tool)
 ├── models.py           Pydantic schemas: PlanRequest, Plan, Week, Workout
 ├── requirements.txt
 ├── render.yaml         One-click Render deploy
 ├── .env.example
+├── tests/              jsdom smoke test for the static frontend
 └── static/
     ├── index.html      Form + plan display
     ├── styles.css      Inherits landing-page palette

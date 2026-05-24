@@ -1,0 +1,11 @@
+{
+  "name": "switchback-frontend-tests",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node test-demo-mode.mjs"
+  },
+  "devDependencies": {
+    "jsdom": "^29.1.1"
+  }
+}

@@ -146,8 +146,9 @@ function el(tag, props = {}, ...kids) {
     else node.setAttribute(k, v);
   }
   for (const kid of kids.flat()) {
-    if (kid == null) continue;
-    node.appendChild(typeof kid === "string" ? document.createTextNode(kid) : kid);
+    if (kid == null || kid === false) continue;
+    if (kid instanceof Node) node.appendChild(kid);
+    else node.appendChild(document.createTextNode(String(kid)));
   }
   return node;
 }
