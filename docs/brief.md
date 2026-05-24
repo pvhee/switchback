@@ -85,9 +85,17 @@ community.
 
 ## Status
 
-Working prototype validated against a personal UTMB World Series
-training cycle (Monte Rosa Walserwaeg Trail, July 2026). Plan
+**Working prototype live.** Switchback's plan generator runs as a
+public web app — plain-language goal in, structured periodized plan
+out, with `.FIT`-encoded workouts ready for import to Garmin Connect.
+Provider-agnostic LLM backend (default Claude `claude-opus-4-7`),
+Pydantic-validated output, frontend tested at desktop and mobile.
+
+End-to-end validation also exists on a personal UTMB World Series
+training cycle (Monte Rosa Walserwaeg Trail, July 2026): plan
 generation, Garmin workout structure, calendar push, and feedback
-analysis all proven in production for one athlete across a 14-week
-training block. Scaling to multi-user web/mobile product as of
-[MONTH] 2026.
+analysis all proven for one athlete across a 14-week training block.
+
+Closed alpha launches on `.FIT` workout-file export while the Garmin
+Training API application is in review. Migrating to the Training API
+will be the version-1 release.

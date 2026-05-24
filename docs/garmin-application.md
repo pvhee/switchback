@@ -124,12 +124,44 @@ self-reported zones.
 
 ## Existing validation
 
+A working prototype of Switchback is live and publicly demonstrable:
+
+- **Demo URL:** [APP_URL] (set after deploy; see `docs/garmin-approval-plan.md`)
+- **Public repository:** https://github.com/pvhee/switchback
+
+The prototype implements:
+
+1. **Plain-language plan generation.** The user describes their goal
+   race; the service returns a structured week-by-week plan covering
+   periodisation, weekly load progression, recovery weeks, and quality
+   sessions. Generation is provider-agnostic (Claude by default,
+   swappable to other LLM providers) and validated against a Pydantic
+   schema so the output is always structurally sound.
+2. **Garmin-compatible workout encoding.** Each generated workout can
+   be downloaded as a `.FIT` workout file using the Garmin FIT SDK
+   conventions (file type 5 = WORKOUT, structured warmup / main /
+   cooldown steps, Sport = RUNNING). Reviewers can verify by importing
+   a downloaded file into Garmin Connect.
+3. **Coaching-rule constraints.** Workouts are typed (easy, long,
+   tempo, intervals, hill repeats, recovery, rest, race, cross-train)
+   and the plan generator is system-prompted with explicit coaching
+   rules: ≤10% weekly load growth, recovery week every 3rd / 4th week,
+   single hard day between long runs, taper before race.
+4. **Frontend + tests.** The interface matches our published landing
+   page. Frontend behaviour has both a `jsdom` unit suite and a
+   headless-Chromium end-to-end suite asserting visual correctness at
+   desktop and mobile viewports.
+
 The plan-generation logic and Garmin workout-structure handling has
-been validated end-to-end against a personal 14-week training block
-for the Monte Rosa Walserwaeg Trail (UTMB World Series, July 18,
-2026 — 43 km / 3,200 m vert). All workout types, scheduling logic,
-and feedback analysis are working in production for a single user.
-We are now scaling this to a multi-user product.
+also been validated end-to-end against a personal 14-week training
+block for the Monte Rosa Walserwaeg Trail (UTMB World Series,
+July 18, 2026 — 43 km / 3,200 m vert). All workout types, scheduling
+logic, and feedback analysis are working for one athlete.
+
+We are now scaling this to a multi-user product. The Training API is
+the only remaining piece needed to ship the natively-integrated
+experience — the alpha will run on `.FIT` file export in the
+meantime.
 
 ## Timeline and ask
 

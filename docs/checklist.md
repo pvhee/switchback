@@ -1,20 +1,24 @@
 # Pre-application checklist
 
+> **For the active execution plan**, see `garmin-approval-plan.md`.
+> This file is the original item-level checklist, kept current.
+
 Everything that needs to be true before contacting Garmin Developer
 Relations. Order is roughly the order to execute in — but several can
 run in parallel.
 
 | # | Item | Owner | Blocks | Status |
 |---|---|---|---|---|
-| 0 | Pick brand name; confirm `.com` / `.io` / `.run` availability on Namecheap | you | everything below | ☐ |
+| 0 | Pick brand name; confirm `.com` / `.io` / `.run` availability on Namecheap | you | everything below | ☑ Switchback / `.run` |
 | 1 | Buy domain | you | landing page, email, application | ☐ |
-| 2 | Incorporate (LLC / Ltd / BV / similar) | you | privacy / terms / Garmin app | ☐ |
+| 2 | Incorporate (LLC / Ltd / BV / similar) | you | privacy / terms / Garmin app | ☐ Cloudwired Estonia — name chosen, reg unconfirmed |
 | 3 | Set up `peter@switchback.run` (Google Workspace or Fastmail) | you | Garmin app submission | ☐ |
-| 4 | Publish landing page (Framer / Webflow / Carrd / Next.js — pick one) | you | Garmin app references it | ☐ |
-| 5 | Privacy policy + Terms reviewed by lawyer, published at `/privacy`, `/terms` | you + lawyer | Garmin app | ☐ |
-| 6 | Product brief finalized (`brief.md`) | you | Garmin app attachment | ☐ |
-| 7 | Garmin application copy finalized (`garmin-application.md`) | you | submission | ☐ |
+| 4 | Publish landing page | you | Garmin app references it | ☐ Built; not yet served at `switchback.run` |
+| 5 | Privacy policy + Terms reviewed by lawyer, published at `/privacy`, `/terms` | you + lawyer | Garmin app | ☐ Drafted; lawyer not engaged |
+| 6 | Product brief finalized (`brief.md`) | you | Garmin app attachment | ☑ Updated to reference live prototype |
+| 7 | Garmin application copy finalized (`garmin-application.md`) | you | submission | ☑ Updated to reference live prototype |
 | 8 | Submit via Garmin Developer contact form (`garmin-contact-ticket.md`) | you | response from Garmin | ☐ |
+| 9 | **Working prototype** — public app demonstrating plan generation + .FIT export | Claude + you | nothing (gated only by deploy) | ☑ Built, on `main`; needs Render deploy for public URL |
 
 ## Notes on dependencies
 
