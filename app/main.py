@@ -13,7 +13,7 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException
-from fastapi.responses import FileResponse, Response
+from fastapi.responses import Response
 from fastapi.staticfiles import StaticFiles
 
 load_dotenv()  # noqa: E402 — env vars must be in scope before importing planner
@@ -26,12 +26,6 @@ APP_DIR = Path(__file__).parent
 STATIC_DIR = APP_DIR / "static"
 
 app = FastAPI(title="Switchback", version="0.1.0")
-app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
-
-
-@app.get("/", include_in_schema=False)
-async def index() -> FileResponse:
-    return FileResponse(STATIC_DIR / "index.html")
 
 
 @app.get("/healthz", include_in_schema=False)
@@ -64,3 +58,8 @@ async def export_workout_fit(req: FitExportRequest) -> Response:
         media_type="application/vnd.ant.fit",
         headers={"Content-Disposition": f'attachment; filename="{safe_name}.fit"'},
     )
+
+
+# Static frontend at root — declared AFTER API routes so /api/* and /healthz
+# take precedence. html=True serves index.html for GET /.
+app.mount("/", StaticFiles(directory=STATIC_DIR, html=True), name="static")

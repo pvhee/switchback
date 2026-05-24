@@ -74,7 +74,10 @@ function setBusy(busy) {
 }
 
 async function loadSample() {
-  const r = await fetch("/static/sample-plan.json");
+  // Relative to this module so it resolves both behind FastAPI and on
+  // static hosts (raw.githack, GitHub Pages, etc.).
+  const url = new URL("sample-plan.json", import.meta.url);
+  const r = await fetch(url);
   if (!r.ok) throw new Error("Couldn't load sample plan.");
   return r.json();
 }
