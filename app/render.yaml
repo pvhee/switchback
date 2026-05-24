@@ -1,0 +1,22 @@
+# One-click deploy to Render: https://render.com/deploy
+#
+# Steps:
+#   1. Push this branch to GitHub (already done).
+#   2. In Render → New → Blueprint → connect this repo.
+#   3. Set ANTHROPIC_API_KEY in the Environment section.
+#   4. Deploy. Open the .onrender.com URL on your phone.
+
+services:
+  - type: web
+    name: switchback-app
+    runtime: python
+    rootDir: app
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /healthz
+    envVars:
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: PYTHON_VERSION
+        value: "3.11.10"
