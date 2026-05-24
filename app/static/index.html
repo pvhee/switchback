@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Switchback — Plan generator</title>
+    <meta name="description" content="Generate an adaptive trail or ultra training plan from a plain-language goal." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="/">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-name">Switchback</span>
+        <span class="brand-tag">plan generator</span>
+      </a>
+      <div class="topbar-meta">
+        <span id="mode-pill" class="mode-pill" hidden></span>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="panel panel-form">
+        <h1 class="display">Write me a plan.</h1>
+        <p class="lead">
+          Describe your goal race in plain language. Switchback drafts a
+          week-by-week plan you can download as <code>.FIT</code> workouts.
+        </p>
+
+        <form id="plan-form" class="form" novalidate>
+          <label class="field field-full">
+            <span class="field-label">Goal</span>
+            <textarea
+              name="goal_description"
+              rows="4"
+              required
+              placeholder="UTMB CCC in August 2026. Currently running ~45 km/week, longest run 28 km. Want to finish under 20 hours."
+            ></textarea>
+          </label>
+
+          <div class="field-row">
+            <label class="field">
+              <span class="field-label">Race date</span>
+              <input type="date" name="race_date" />
+            </label>
+            <label class="field">
+              <span class="field-label">Weeks until race</span>
+              <input type="number" name="weeks_until_race" min="4" max="52" placeholder="16" />
+            </label>
+          </div>
+
+          <div class="field-row">
+            <label class="field">
+              <span class="field-label">Current weekly km</span>
+              <input type="number" name="weekly_km" min="0" step="0.1" placeholder="45" />
+            </label>
+            <label class="field">
+              <span class="field-label">Longest recent run (km)</span>
+              <input type="number" name="longest_run_km" min="0" step="0.1" placeholder="28" />
+            </label>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary" id="submit-btn">
+              <span class="btn-label">Generate plan</span>
+            </button>
+            <button type="button" class="btn btn-ghost" id="demo-btn">
+              Load sample
+            </button>
+          </div>
+
+          <p id="form-error" class="form-error" hidden></p>
+        </form>
+      </section>
+
+      <section class="panel panel-output" id="plan-output" aria-live="polite">
+        <div class="empty-state" id="empty-state">
+          <div class="empty-mark"></div>
+          <p class="empty-title">No plan yet.</p>
+          <p class="empty-sub">
+            Fill in your goal on the left, hit <em>Generate</em>. Or tap
+            <em>Load sample</em> to see what a plan looks like.
+          </p>
+        </div>
+
+        <div class="loading-state" id="loading-state" hidden>
+          <div class="loading-bar"><span></span></div>
+          <p class="loading-text">
+            Drafting your plan. This typically takes 30–60 seconds — the
+            model thinks through periodisation, recovery, and your current
+            fitness before writing.
+          </p>
+        </div>
+
+        <div class="plan" id="plan" hidden></div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>Switchback · adaptive plans for trail &amp; ultra runners</span>
+      <a href="https://switchback.run">switchback.run</a>
+    </footer>
+
+    <script type="module" src="/static/app.js"></script>
+  </body>
+</html>

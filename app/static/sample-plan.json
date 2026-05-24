@@ -1,0 +1,68 @@
+{
+  "goal": "UTMB CCC (101km, 6100m+) in late August 2026 — finish under 20 hours",
+  "race_date": "2026-08-28",
+  "total_weeks": 4,
+  "weeks": [
+    {
+      "week_num": 1,
+      "phase": "base",
+      "focus": "Re-establish aerobic base. Easy effort dominates.",
+      "total_km": 48,
+      "workouts": [
+        {"day": "mon", "name": "Rest", "type": "rest", "duration_min": 0, "distance_km": null, "description": "Full rest. Walk if you like.", "intensity": "rest"},
+        {"day": "tue", "name": "Easy run", "type": "easy_run", "duration_min": 45, "distance_km": 7.5, "description": "Flat or rolling. Conversational pace — you should be able to nose-breathe.", "intensity": "easy"},
+        {"day": "wed", "name": "Hill strides", "type": "hill_repeats", "duration_min": 50, "distance_km": 8, "description": "30 min easy, then 6x30s uphill at hard effort, 90s walk down. 10 min cool down. Builds neuromuscular power without taxing systems.", "intensity": "hard"},
+        {"day": "thu", "name": "Easy run", "type": "easy_run", "duration_min": 40, "distance_km": 6.5, "description": "Trails if available. Keep heart rate Z2.", "intensity": "easy"},
+        {"day": "fri", "name": "Rest or cross", "type": "cross_train", "duration_min": 30, "distance_km": null, "description": "Optional easy spin, swim, or strength. Active recovery only.", "intensity": "easy"},
+        {"day": "sat", "name": "Long run", "type": "long_run", "duration_min": 145, "distance_km": 22, "description": "Trail with ~600m vertical if possible. Time on feet matters more than pace. Walk steep climbs.", "intensity": "easy"},
+        {"day": "sun", "name": "Recovery jog", "type": "recovery", "duration_min": 25, "distance_km": 4, "description": "Very easy shakeout. Just loosen the legs.", "intensity": "easy"}
+      ]
+    },
+    {
+      "week_num": 2,
+      "phase": "base",
+      "focus": "Continue base. Long run grows ~10%.",
+      "total_km": 53,
+      "workouts": [
+        {"day": "mon", "name": "Rest", "type": "rest", "duration_min": 0, "distance_km": null, "description": "Full rest.", "intensity": "rest"},
+        {"day": "tue", "name": "Easy + strides", "type": "easy_run", "duration_min": 50, "distance_km": 8.5, "description": "45 min easy, then 4x20s strides at 5k effort with full recovery.", "intensity": "easy"},
+        {"day": "wed", "name": "Tempo", "type": "tempo", "duration_min": 55, "distance_km": 9, "description": "15 min warm up, 25 min at comfortably-hard (half-marathon effort), 15 min cool down. First quality session — controlled.", "intensity": "moderate"},
+        {"day": "thu", "name": "Easy run", "type": "easy_run", "duration_min": 45, "distance_km": 7.5, "description": "Trail or road. Z2.", "intensity": "easy"},
+        {"day": "fri", "name": "Cross train", "type": "cross_train", "duration_min": 40, "distance_km": null, "description": "Strength session: squats, lunges, single-leg work. Critical for mountain running.", "intensity": "moderate"},
+        {"day": "sat", "name": "Long run", "type": "long_run", "duration_min": 165, "distance_km": 25, "description": "Trail with 700-800m vertical. Practice fueling — 60g carbs/hour. Walk steep climbs at zone-2 HR.", "intensity": "easy"},
+        {"day": "sun", "name": "Recovery jog", "type": "recovery", "duration_min": 30, "distance_km": 5, "description": "Easy shakeout, trails if possible.", "intensity": "easy"}
+      ]
+    },
+    {
+      "week_num": 3,
+      "phase": "base",
+      "focus": "Push the long run further. Back-to-back weekend.",
+      "total_km": 58,
+      "workouts": [
+        {"day": "mon", "name": "Rest", "type": "rest", "duration_min": 0, "distance_km": null, "description": "Full rest.", "intensity": "rest"},
+        {"day": "tue", "name": "Easy run", "type": "easy_run", "duration_min": 50, "distance_km": 8.5, "description": "Trail preferred. Easy effort.", "intensity": "easy"},
+        {"day": "wed", "name": "Hill intervals", "type": "hill_repeats", "duration_min": 60, "distance_km": 9, "description": "15 min warm up, 5x3 min uphill at hard effort with jog-down recovery, 10 min cool down. Find a 6-10% gradient.", "intensity": "hard"},
+        {"day": "thu", "name": "Easy run", "type": "easy_run", "duration_min": 45, "distance_km": 7.5, "description": "Recovery between hard days. Strictly easy.", "intensity": "easy"},
+        {"day": "fri", "name": "Strength", "type": "cross_train", "duration_min": 40, "distance_km": null, "description": "Lower-body + core. Bulgarian splits, step-ups, planks.", "intensity": "moderate"},
+        {"day": "sat", "name": "Long run", "type": "long_run", "duration_min": 195, "distance_km": 28, "description": "Trail with 1000m vertical. Race-day fueling practice. Back-to-back tomorrow.", "intensity": "easy"},
+        {"day": "sun", "name": "Medium run", "type": "easy_run", "duration_min": 60, "distance_km": 9, "description": "Run on tired legs — this is the magic for ultra prep. Very easy effort, hike if needed.", "intensity": "easy"}
+      ]
+    },
+    {
+      "week_num": 4,
+      "phase": "recovery",
+      "focus": "Recovery week. ~30% volume drop. Absorb the training.",
+      "total_km": 38,
+      "workouts": [
+        {"day": "mon", "name": "Rest", "type": "rest", "duration_min": 0, "distance_km": null, "description": "Full rest.", "intensity": "rest"},
+        {"day": "tue", "name": "Easy run", "type": "easy_run", "duration_min": 35, "distance_km": 6, "description": "Short and very easy.", "intensity": "easy"},
+        {"day": "wed", "name": "Easy + strides", "type": "easy_run", "duration_min": 40, "distance_km": 6.5, "description": "35 min easy, 4x20s strides. Keep legs sharp without depth.", "intensity": "easy"},
+        {"day": "thu", "name": "Rest", "type": "rest", "duration_min": 0, "distance_km": null, "description": "Active recovery — walk, yoga, swim.", "intensity": "rest"},
+        {"day": "fri", "name": "Easy run", "type": "easy_run", "duration_min": 35, "distance_km": 6, "description": "Easy effort, trails.", "intensity": "easy"},
+        {"day": "sat", "name": "Long run", "type": "long_run", "duration_min": 90, "distance_km": 14, "description": "Cut long run by half. Z2 throughout, no vertical focus.", "intensity": "easy"},
+        {"day": "sun", "name": "Recovery jog", "type": "recovery", "duration_min": 25, "distance_km": 4, "description": "Easy shakeout. You should feel restored by Monday.", "intensity": "easy"}
+      ]
+    }
+  ],
+  "notes": "Sample 4-week excerpt from a longer build. Real plan would run 16-24 weeks. This block shows a classic 3:1 cycle (3 build weeks, 1 recovery), with the long run progressing 22 → 25 → 28 km before dropping to 14 km. Hard sessions are flanked by easy days. Strength on Friday is non-negotiable for mountain races — quad strength dictates how well you descend after 80 km."
+}
