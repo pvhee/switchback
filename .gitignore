@@ -24,3 +24,6 @@ build/
 # Node
 node_modules/
 package-lock.json
+
+# Test artifacts
+app/tests/shots/

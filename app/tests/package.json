@@ -3,9 +3,12 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node test-demo-mode.mjs"
+    "test": "node test-demo-mode.mjs && node test-browser.mjs",
+    "test:jsdom": "node test-demo-mode.mjs",
+    "test:browser": "node test-browser.mjs"
   },
   "devDependencies": {
-    "jsdom": "^29.1.1"
+    "jsdom": "^29.1.1",
+    "puppeteer-core": "^25.0.4"
   }
 }
