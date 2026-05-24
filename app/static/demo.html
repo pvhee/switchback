@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Switchback — for Garmin reviewers</title>
+    <meta name="robots" content="noindex" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .demo-page { max-width: 760px; margin: 0 auto; padding: clamp(24px, 5vw, 56px) var(--gutter); }
+      .demo-page h1 { font-family: var(--display); font-weight: 500; font-size: clamp(28px, 4.4vw, 42px); letter-spacing: -0.02em; line-height: 1.05; margin-bottom: 8px; }
+      .demo-page h2 { font-family: var(--display); font-weight: 500; font-size: 22px; letter-spacing: -0.01em; margin: 32px 0 12px; }
+      .demo-page .eyebrow { font-size: 12px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); font-weight: 600; margin-bottom: 10px; }
+      .demo-page p { color: var(--ink-2); margin-bottom: 12px; }
+      .demo-page p strong { color: var(--ink); font-weight: 600; }
+      .demo-page ol { padding-left: 1.2em; }
+      .demo-page ol li { margin-bottom: 14px; color: var(--ink-2); }
+      .demo-page ol li strong { color: var(--ink); font-weight: 600; }
+      .demo-page a.inline { color: var(--accent-2); border-bottom: 1px solid color-mix(in srgb, var(--accent) 30%, transparent); }
+      .demo-page a.inline:hover { border-bottom-color: var(--accent-2); }
+      .demo-page .cta { display: inline-flex; align-items: center; gap: 8px; padding: 11px 20px; border-radius: 999px; background: var(--ink); color: var(--light); font-weight: 600; font-size: 15px; margin: 14px 0 4px; transition: background .15s var(--ease); }
+      .demo-page .cta:hover { background: var(--accent); }
+      .demo-page .meta { background: var(--bg-card); border: 1px solid var(--rule); border-radius: var(--radius); padding: 18px 22px; margin: 24px 0; }
+      .demo-page .meta dt { font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-3); font-weight: 600; margin-top: 8px; }
+      .demo-page .meta dt:first-child { margin-top: 0; }
+      .demo-page .meta dd { margin: 4px 0 0 0; font-size: 14px; }
+      .demo-page code { background: var(--bg-elev); padding: 1px 6px; border-radius: 4px; border: 1px solid var(--rule-soft); font-size: 0.92em; }
+      .demo-page .callout { background: var(--forest-soft); border: 1px solid color-mix(in srgb, var(--forest) 20%, transparent); border-radius: var(--radius-sm); padding: 14px 16px; font-size: 14px; color: var(--bg-deep); margin: 20px 0; }
+      .demo-page .callout strong { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--forest); margin-bottom: 4px; }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="/">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-name">Switchback</span>
+        <span class="brand-tag">for reviewers</span>
+      </a>
+    </header>
+
+    <main class="demo-page">
+      <p class="eyebrow">Garmin Developer Relations · evaluation page</p>
+      <h1>Switchback is a working product.</h1>
+      <p>
+        This page is for the Garmin Developer team evaluating our
+        Training API request. Everything below is testable in under
+        five minutes and verifies the claims in our application.
+      </p>
+
+      <dl class="meta">
+        <dt>Company</dt>
+        <dd>Cloudwired, Estonia · founder: Peter Van Hee · <a class="inline" href="mailto:peter@switchback.run">peter@switchback.run</a></dd>
+        <dt>Marketing site</dt>
+        <dd><a class="inline" href="https://switchback.run">switchback.run</a></dd>
+        <dt>Public source code</dt>
+        <dd><a class="inline" href="https://github.com/pvhee/switchback">github.com/pvhee/switchback</a></dd>
+        <dt>Privacy &amp; Terms</dt>
+        <dd>
+          <a class="inline" href="https://switchback.run/privacy">switchback.run/privacy</a> ·
+          <a class="inline" href="https://switchback.run/terms">switchback.run/terms</a>
+        </dd>
+      </dl>
+
+      <h2>What you can verify in 3 minutes</h2>
+
+      <ol>
+        <li>
+          <strong>Open the live app.</strong>
+          <a class="cta" href="/">Try Switchback →</a>
+          The app runs in <em>demo mode</em> if no <code>ANTHROPIC_API_KEY</code> is configured;
+          in production it generates a real plan from a plain-language goal in 30–60s.
+        </li>
+        <li>
+          <strong>Generate or load a plan.</strong> Type a goal
+          (e.g. <em>"UTMB CCC in August 2026, currently running ~45 km/week"</em>) and
+          submit, or tap <strong>Load sample</strong> for an instant 4-week excerpt.
+          The plan is structured: phases (base / build / peak / taper),
+          weekly mileage caps, typed workouts (easy, long, intervals,
+          hills, recovery, rest), and per-workout coaching notes.
+        </li>
+        <li>
+          <strong>Download a <code>.FIT</code> workout.</strong>
+          Every non-rest workout has a <code>.FIT</code> button. The
+          encoded file is a Garmin <em>structured workout</em> (file
+          type 5 = WORKOUT, sport = RUNNING, with warmup / main /
+          cooldown steps) — not an activity file.
+        </li>
+        <li>
+          <strong>Verify in Garmin Connect.</strong>
+          Open <a class="inline" href="https://connect.garmin.com/modern/workouts">Garmin Connect → Workouts</a>,
+          click <strong>Create a Workout → Import</strong>, and select
+          the downloaded <code>.FIT</code>. The workout should appear
+          with the correct structure, duration, and step types. Send
+          it to a paired watch to complete the round trip.
+        </li>
+      </ol>
+
+      <div class="callout">
+        <strong>Why this matters for our request</strong>
+        We can already shape valid Garmin workout files end-to-end.
+        The Training API is what turns this from a manual import flow
+        (the alpha workaround) into an automatic
+        <em>generate → push → sync</em> experience — the same path
+        TrainingPeaks and other approved partners use.
+      </div>
+
+      <h2>What we're asking for</h2>
+
+      <p>
+        Access to the <strong>Training API</strong> to push structured
+        workouts into a connected user's Garmin Connect calendar. One
+        weekly batch per user (Sunday evening) plus occasional ad-hoc
+        adjustments when a plan is adapted. Volume forecast,
+        data-handling posture, and safety/liability language are in
+        the application document we've prepared — happy to send on
+        request, or read the public draft at
+        <a class="inline" href="https://github.com/pvhee/switchback/blob/main/docs/garmin-application.md">docs/garmin-application.md</a>.
+      </p>
+
+      <p>
+        Read access to the Activity / Health API would also benefit
+        our weekly adaptation loop but is <strong>not a launch
+        blocker</strong>. We're happy to scope it in the same
+        conversation or defer to a follow-up.
+      </p>
+
+      <h2>How we handle user data</h2>
+
+      <p>
+        Garmin OAuth tokens only — we never request or store Garmin
+        passwords. Tokens are encrypted at rest with a per-user key
+        in an EU-region Postgres database. Disconnect deletes tokens
+        the same request. Data retention, processors, and DPAs are
+        enumerated in
+        <a class="inline" href="https://switchback.run/privacy">our Privacy Policy</a>.
+        The medical / liability posture is in
+        <a class="inline" href="https://switchback.run/terms">our Terms of Service §6</a>.
+      </p>
+
+      <h2>Open questions or next steps</h2>
+
+      <p>
+        Email <a class="inline" href="mailto:peter@switchback.run">peter@switchback.run</a>
+        with any concern, request for additional information, or to
+        schedule a short call. We'll respond same business day.
+      </p>
+
+      <p style="margin-top: 32px;">
+        <a class="inline" href="/">← Back to the app</a>
+      </p>
+    </main>
+
+    <footer class="footer">
+      <span>Switchback · adaptive plans for trail &amp; ultra runners</span>
+      <a href="https://switchback.run">switchback.run</a>
+    </footer>
+  </body>
+</html>

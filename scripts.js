@@ -9,20 +9,36 @@
     window.addEventListener('scroll', onScroll, { passive: true });
   }
 
-  // Waitlist form — stub handler. Wire to your real service (Buttondown /
-  // Resend / Formspree / Mailchimp / etc.) by replacing `submitEmail` below
-  // with a fetch to your endpoint.
+  // Waitlist form — posts to formsubmit.co (no account required).
+  //
+  // SETUP (one-time, once peter@switchback.run is live):
+  //   1. Submit any test email from the form below.
+  //   2. formsubmit.co will email peter@switchback.run an activation link.
+  //   3. Click it once. From that moment, real submissions are delivered.
+  //
+  // To swap providers (Tally, Buttondown, ConvertKit, etc.), change the
+  // ENDPOINT constant and the body shape — that's the only edit needed.
+  const ENDPOINT = 'https://formsubmit.co/ajax/peter@switchback.run';
+
   async function submitEmail(email, source) {
-    // TODO: replace this stub with a real POST.
-    // Example with Buttondown:
-    //   const r = await fetch('https://api.buttondown.email/v1/subscribers', {
-    //     method: 'POST',
-    //     headers: { 'Authorization': 'Token YOUR_TOKEN', 'Content-Type': 'application/json' },
-    //     body: JSON.stringify({ email, tags: ['waitlist', source] }),
-    //   });
-    //   if (!r.ok) throw new Error('Subscription failed');
-    await new Promise(r => setTimeout(r, 600));
-    console.info('[waitlist stub]', { email, source });
+    const r = await fetch(ENDPOINT, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+      body: JSON.stringify({
+        email,
+        source,
+        _subject: `Switchback waitlist signup (${source})`,
+        _template: 'table',
+      }),
+    });
+    let data = {};
+    try { data = await r.json(); } catch { /* network or non-JSON */ }
+    if (!r.ok || (data.success && data.success !== 'true')) {
+      throw new Error(data.message || `Subscription failed (${r.status})`);
+    }
   }
 
   document.querySelectorAll('form.waitlist').forEach(form => {
